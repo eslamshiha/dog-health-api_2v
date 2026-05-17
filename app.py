@@ -1,6 +1,39 @@
 from fastapi import FastAPI
 import joblib
 import numpy as np
+import os
+import gdown
+
+
+
+# تحميل الموديل لو مش موجود
+if not os.path.exists("dog_health_model.pkl"):
+    gdown.download(
+        "https://drive.google.com/uc?id=1FjJQ5mCJp0Aj-qnZBnZoDBw2jcakoxWD",
+        "dog_health_model.pkl",
+        quiet=False
+    )
+
+if not os.path.exists("scaler.pkl"):
+    gdown.download(
+        "https://drive.google.com/uc?id=15wnB38NIX3Lo-z2ZvkEV0DDJe8YIBEcV",
+        "scaler.pkl",
+        quiet=False
+    )
+
+if not os.path.exists("label_encoder.pkl"):
+    gdown.download(
+        "https://drive.google.com/uc?id=10ZQz9i9eMtsW0cntpmjjIC9H6Gw5f1Xp",
+        "label_encoder.pkl",
+        quiet=False
+    )
+
+if not os.path.exists("imputer.pkl"):
+    gdown.download(
+        "https://drive.google.com/uc?id=16McYA3KpTknsQHz_GwO0MLkEVZ83GRfT",
+        "imputer.pkl",
+        quiet=False
+    )
 
 app = FastAPI()
 
